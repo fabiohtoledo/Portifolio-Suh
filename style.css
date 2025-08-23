@@ -1,0 +1,160 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    color: #fff;
+    scroll-behavior: smooth;
+}
+/* Header */
+header {
+    position: fixed;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    border-bottom: 1px solid #6b21a8;
+    padding: 1rem;
+    gap: 2rem;
+    z-index: 1000;
+}
+.div-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    padding: 0px 0px;
+}
+
+header nav{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 20px;
+}
+
+header nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+}
+header a:hover {
+    color: #c084fc;
+}
+
+
+
+.portifolio-header{
+    padding: 10px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+
+
+/* Card Principal */
+section {
+    padding: 60px 20px 60px;
+    text-align: center;
+}
+.hero{
+    height: 95vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.hero img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #6b21a8;
+    margin-bottom: 1rem;
+}
+.typed {
+    color: #c084fc;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+.socials a {
+    margin: 0 10px;
+    color: #c084fc;
+    text-decoration: none;
+}
+
+    /* Typed */
+.typed {
+    display: inline;
+    font-size: 1.25rem;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+
+
+/* Portifólio de Videos */
+.swiper {
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto 40px;
+}
+video, img {
+    width: 100%;
+    border-radius: 10px;
+    height: 533px;
+}
+
+    /* SwiperJS */
+.swiper-button-next,
+.swiper-button-prev {
+color: #c084fc;
+}
+
+.swiper-pagination-bullet {
+background: #6b21a8;
+}
+
+.swiper-pagination-bullet-active {
+background: #c084fc;
+}
+
+
+/* Portifólio Imagens */
+.galeria{
+    
+}
+
+/* Formulário */
+form {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+input, textarea {
+    padding: 0.75rem;
+    border: 1px solid #6b21a8;
+    border-radius: 5px;
+    background-color: #1f1f1f;
+    color: white;
+}
+button {
+    background-color: #6b21a8;
+    border: none;
+    color: white;
+    padding: 0.75rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #000000;
+}
+footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.9rem;
+    color: #aaa;
+    border-top: 1px solid #6b21a8;
+}

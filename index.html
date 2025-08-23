@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfólio Suh</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="div-header">
+      <a class="portifolio-header" href="#home">Portifólio</a>
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#videos">Videos</a>
+        <a href="#imagens">Imagens</a>
+        <a href="#contact">Contato</a>
+      </nav>
+
+    </div>
+
+  </header>
+
+  <section id="home" class="hero">
+    <img src="imagens/suh.png" alt="Foto do cliente">
+    <h1>Suzana Sonnewend</h1>
+    <div class="typed"></div>
+    <div class="socials">
+      <a href="#">Instagram</a>
+      <a href="#">YouTube</a>
+      <a href="#">LinkedIn</a>
+    </div>
+  </section>
+
+  <section id="portfolio">
+    <h2>Vídeos (Reels)</h2>
+    <div class="swiper" id="swiper-videos">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <video controls>
+            <source src="videos/reel1.mp4" type="video/mp4">
+            Seu navegador não suporta vídeo.
+          </video>
+        </div>
+        <div class="swiper-slide">
+          <video controls>
+            <source src="videos/reel1.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="swiper-slide">
+          <video controls>
+            <source src="videos/reel1.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="swiper-slide">
+          <video controls>
+            <source src="videos/reel1.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="swiper-slide">
+          <video controls>
+            <source src="videos/reel1.mp4" type="video/mp4">
+          </video>
+        </div>
+        
+      </div>
+      <div class="swiper-button-prev" id="prev-videos"></div>
+      <div class="swiper-button-next" id="next-videos"></div>
+      <div class="swiper-pagination" id="pagination-videos"></div>
+    </div>
+
+
+    <!-- Colocar grid -->
+    <h2 style="margin-top:60px;">Artes Publicitárias</h2>
+    <div class="galeria">
+      <div class="gallery-wrapper">
+        <div class="arts">
+          <img src="imagens/cliques.webp" alt="Arte 1">
+        </div>
+        <div class="arts">
+          <img src="imagens/cliques2.webp" alt="Arte 2">
+        </div>
+        <div class="arts">
+          <img src="imagens/cliques3.webp" alt="Arte 2">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contato</h2>
+    <form action="https://formspree.io/f/seu_id" method="POST">
+      <input type="text" name="nome" placeholder="Seu nome" required>
+      <input type="email" name="email" placeholder="Seu email" required>
+      <textarea name="mensagem" rows="5" placeholder="Sua mensagem" required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+
+  <footer>
+    © Suzana 2025. Todos os direitos reservados.
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
