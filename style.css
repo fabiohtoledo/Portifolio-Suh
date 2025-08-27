@@ -9,6 +9,7 @@ body {
 header {
     position: fixed;
     width: 100%;
+    margin: 0 auto;
     background: rgba(0, 0, 0, 0.8);
     border-bottom: 1px solid #6b21a8;
     padding: 1rem;
@@ -21,10 +22,10 @@ header {
     align-items: center;
     max-width: 1400px;
     padding: 0px 0px;
+    margin: auto 0;
 }
 
 header nav{
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -40,8 +41,6 @@ header a:hover {
     color: #c084fc;
 }
 
-
-
 .portifolio-header{
     padding: 10px;
     font-size: 1.3rem;
@@ -50,6 +49,103 @@ header a:hover {
     text-decoration: none;
 }
 
+/* Menu Hambúrguer */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 3px 0;
+    transition: 0.3s;
+}
+
+/* Animação do ícone hambúrguer */
+.menu-toggle span.active:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.menu-toggle span.active:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle span.active:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Responsividade do Header */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+    
+    header nav {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background: rgba(0, 0, 0, 0.95);
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding-top: 2rem;
+        transition: 0.3s ease-in-out;
+        padding-right: 0;
+    }
+    
+    header nav.active {
+        left: 0;
+    }
+    
+    header nav a {
+        margin: 15px 0;
+        font-size: 1.2rem;
+        padding: 15px 20px;
+        width: 80%;
+        text-align: center;
+        border: 1px solid transparent;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+    }
+    
+    header nav a:hover {
+        border-color: #6b21a8;
+        background: rgba(107, 33, 168, 0.1);
+    }
+    
+    .div-header {
+        padding: 0 20px;
+    }
+    
+    .portifolio-header {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 0.5rem;
+    }
+    
+    .div-header {
+        padding: 0 10px;
+    }
+    
+    .portifolio-header {
+        font-size: 1rem;
+    }
+    
+    header nav a {
+        width: 90%;
+        font-size: 1.1rem;
+    }
+}
 
 
 /* Card Principal */
@@ -122,7 +218,7 @@ background: #c084fc;
 
 /* Portifólio Imagens */
 .galeria{
-    
+    text-align: center;
 }
 
 /* Formulário */
