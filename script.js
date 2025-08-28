@@ -59,3 +59,50 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+//tiltar as imagens da galeria
+VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
+    max: 10,
+    speed: 400,
+    glare: false,
+    reset: true,
+    gyroscope: false,
+    reverse: false,
+});
+
+// modal
+const gallery = document.querySelectorAll('.gallery img');
+const modal = document.getElementById('modal');
+const modalImg = document.getElementById('modalImg');
+
+//ativando o modal ao clicar na imagem
+gallery.forEach(img => {
+    img.addEventListener('click', () => {
+        const preload = new Image();
+        preload.src = img.src;
+        modal.classList.add('active');
+        preload.onload = () => {
+            modalImg.src = img.src;
+            modalImg.classList.add('loaded');
+        }
+    });
+
+});
+
+//fechando ao clicar fora da imagem
+modal.addEventListener('click', (e) => {
+    if (e.target !== modalImg) {
+        modalImg.classList.remove('loaded');
+        modal.classList.remove('active');
+    }
+});
+
+//tilt no modal com gyroscope pra celular
+VanillaTilt.init(document.querySelector("#modalImg"), {
+    max: 10,
+    speed: 400,
+    reset:true,
+    glare: false,
+    reverse: false,
+    gyroscope: true // <- ativa giroscópio
+});
