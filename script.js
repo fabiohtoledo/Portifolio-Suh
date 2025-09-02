@@ -1,9 +1,9 @@
-new Typed('.typed', {
-    strings: ['Editor de Vídeo', 'Criador de Conteúdo', 'Designer Publicitário'],
+var typed = new Typed('#typed-cargos', {
+    strings: ['Editora de Vídeo', 'Criadora de Conteúdo', 'Graduada em Design'],
     typeSpeed: 50,
-    backSpeed: 30,
-    loop: true,
-});
+    loop:true,
+    backspeed: 30,
+  });
 
 
 const swiper = new Swiper('#swiper-videos', {
