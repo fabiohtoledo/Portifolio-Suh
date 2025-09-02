@@ -1,3 +1,4 @@
+// Typed para cargos ficarem alterando
 var typed = new Typed('#typed-cargos', {
     strings: ['Editora de Vídeo', 'Criadora de Conteúdo', 'Graduada em Design'],
     typeSpeed: 50,
@@ -6,6 +7,7 @@ var typed = new Typed('#typed-cargos', {
   });
 
 
+// swiper pros videos
 const swiper = new Swiper('#swiper-videos', {
     slidesPerView: 1,
     spaceBetween: 20,
@@ -30,10 +32,12 @@ const swiper = new Swiper('#swiper-videos', {
 document.addEventListener('DOMContentLoaded', function() {
     const menuToggle = document.getElementById('menuToggle');
     const navMenu = document.getElementById('navMenu');
+    const whatsappHeader = document.getElementById('whatsapp-header');
     
     // Toggle do menu
     menuToggle.addEventListener('click', function() {
         navMenu.classList.toggle('active');
+        whatsappHeader.classList.toggle('active');
         
         // Animação do ícone hambúrguer
         const spans = menuToggle.querySelectorAll('span');
