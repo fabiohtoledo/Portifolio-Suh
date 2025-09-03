@@ -75,11 +75,17 @@ header a:hover {
 	padding: 10px 20px 15px 20px;
 	text-align: center;
 	margin-right: 20px;
-	border-radius: 10px;
-}
-#whatsapp-header a{
+	border-radius: 10px;	
 	margin-bottom: 10px;
 	text-decoration: none;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: baseline;
+}
+#whatsapp-header:hover{
+	color: #9541da;
+	background-color: #fff;
 }
 #whatsapp-header svg{
 	position: relative;
