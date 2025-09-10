@@ -429,28 +429,54 @@ svg{
 
 /* Portifólio de Videos */
 .swiper {
-	width: 90%;
-	max-width: 800px;
+	width: 60%;
+	padding-top: 50px;
+	padding-bottom: 50px;
 	margin: 0 auto 40px;
 }
-video {
+.swiper-slide {
+	background-position: center;
+	background-size: cover;
+	aspect-ratio: 16/9;
+	height: 700px;
+}
+@media (max-width:480px){
+	.swiper-slide{
+		height: 500px;
+	}
+	.swiper {
+		width: 90%;
+	}
+}
+
+.swiper-slide video {
+	display: block;
 	width: 100%;
-	border-radius: 10px;
-	height: 533px;
+	height: 100%;
 }
 
 	/* SwiperJS */
 .swiper-button-next,
 .swiper-button-prev {
-color: #c084fc;
+	color: #c084fc;
 }
-
 .swiper-pagination-bullet {
-background: #6b21a8;
+	width: 14px;   /* largura */
+  height: 14px;  /* altura */
+	background: #6b21a8;
 }
-
 .swiper-pagination-bullet-active {
-background: #c084fc;
+	background: #c084fc;
+}
+/* sombra da esquerda */
+.swiper-slide-shadow-left {
+	background: rgba(0, 0, 0, 0.6) !important; /* mais escura */
+	backdrop-filter: blur(1px);
+}
+/* sombra da direita */
+.swiper-slide-shadow-right {
+	background: rgba(0, 0, 0, 0.6) !important;
+	backdrop-filter: blur(1px);
 }
 
 

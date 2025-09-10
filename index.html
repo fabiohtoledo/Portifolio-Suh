@@ -4,12 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portfólio Suh</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+  <!-- Swiper JS v11.2.2 stylesheet -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11.2.2/swiper-bundle.min.css"/>
+  <!-- Styles -->
   <link rel="stylesheet" href="style.css">
 
   <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.0/dist/vanilla-tilt.min.js"></script>
 
-  <!-- Fonte -->
+  <!-- Fontes -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;700;900&display=swap" rel="stylesheet">
@@ -72,42 +74,26 @@
     </div>  
   </section>
 
-
+<!-- Seção de vídeo -->
   <section id="portifolio-videos">
     <h2>Vídeos (Reels)</h2>
-    <div class="swiper" id="swiper-videos">
+    <!-- Container principal de slider -->
+    <div class="swiper mySwiper">
+      <!-- Wrapper adicional necessário -->
       <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <video controls>
-            <source src="videos/reel1.mp4" type="video/mp4">
-            Seu navegador não suporta vídeo.
-          </video>
-        </div>
-        <div class="swiper-slide">
-          <video controls>
-            <source src="videos/reel1.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="swiper-slide">
-          <video controls>
-            <source src="videos/reel1.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="swiper-slide">
-          <video controls>
-            <source src="videos/reel1.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="swiper-slide">
-          <video controls>
-            <source src="videos/reel1.mp4" type="video/mp4">
-          </video>
-        </div>
-        
+        <!-- Slides -->
+        <div class="swiper-slide"><video src="/Videos/reel1.mp4" muted playsinline preload="metadata" loop></video></div>
+        <div class="swiper-slide"><video src="/Videos/reel1.mp4" muted playsinline preload="metadata" loop></video></div>
+        <div class="swiper-slide"><video src="/Videos/reel1.mp4" muted playsinline preload="metadata" loop></video></div>
+        <div class="swiper-slide"><video src="/Videos/reel1.mp4" muted playsinline preload="metadata" loop></video></div>
+        <div class="swiper-slide"><video src="/Videos/reel1.mp4" muted playsinline preload="metadata" loop></video></div>
+        <div class="swiper-slide"><video src="/Videos/reel1.mp4" muted playsinline preload="metadata" loop></video></div>
       </div>
-      <div class="swiper-button-prev" id="prev-videos"></div>
-      <div class="swiper-button-next" id="next-videos"></div>
-      <div class="swiper-pagination" id="pagination-videos"></div>
+      <!-- Paginação -->
+      <div class="swiper-pagination"></div>
+      <!-- Botões -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
     </div>
   </section>
 
@@ -163,7 +149,7 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11.2.2/swiper-bundle.min.js"></script> 
   <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.0/dist/vanilla-tilt.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
   <script src="script.js"></script>

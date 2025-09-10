@@ -7,26 +7,85 @@ var typed = new Typed('#typed-cargos', {
   });
 
 
-// swiper pros videos
-const swiper = new Swiper('#swiper-videos', {
-    slidesPerView: 1,
-    spaceBetween: 20,
-    loop: true,
-    navigation: {
-        nextEl: '#next-videos',   // referência direta ao botão correto
-        prevEl: '#prev-videos',
+// swiper videos
+var swiper = new Swiper(".mySwiper", {
+keyboard: {
+    enabled: true,
     },
-    pagination: {
-        el: '#pagination-videos', // referência direta à paginação
-        clickable: true,
+slidesPerView: 1,
+initialSlide: 0,
+speed: 700,
+effect: "coverflow",
+coverflowEffect: {
+    rotate: 10,
+    slideShadows: true,
+    stretch: 170,
+},
+spaceBetween: 0,
+
+loop: true,
+centeredSlides:true,
+pagination: {
+    el: ".swiper-pagination",
+    dynamicBullets: true,
+},
+navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+},
+breakpoints: {
+    // quando >= 480px: 2 slides
+    480: { 
+    slidesPerView: 1, 
+    spaceBetween: 20
     },
-    breakpoints: {
-        0: { slidesPerView: 1 },
-        300: { slidesPerView: 2 },
-        600: { slidesPerView: 3 },
+    // quando >= 1024px: 3 slides
+    1024: { slidesPerView: 2, spaceBetween: 40 },
+},
+on: {
+    init: function () {
+    // roda no próximo frame p/ garantir que as classes já estejam aplicadas
+    requestAnimationFrame(() => handleActiveVideo(this));
     },
-    loopedSlides: 5, // número de slides total
+    // roda *depois* da transição terminar (garante que o slide está visualmente ativo)
+    slideChangeTransitionEnd: function () {
+    handleActiveVideo(this);
+    }
+}
 });
+
+// Videos dão play quando on focous
+function handleActiveVideo(swiper) {
+// obtém o slide DOM que está ativo agora
+const activeSlide = swiper.slides[swiper.activeIndex];
+if (!activeSlide) return;
+
+// pausa e reseta TODOS os vídeos (inclui clones)
+document.querySelectorAll('.swiper-slide video').forEach(video => {
+    // se o vídeo estiver dentro do slide ativo, ignore por enquanto
+    if (video.closest('.swiper-slide') === activeSlide) return;
+    try {
+    video.pause();
+    video.currentTime = 0;
+    } catch (e) {
+    // alguns navegadores podem bloquear currentTime antes de carregar; ignore
+    console.warn('reset video error', e);
+    }
+});
+
+// toca o vídeo do slide ativo (garanta que o elemento existe)
+const activeVideo = activeSlide.querySelector('video');
+if (activeVideo) {
+    // garante autoplay sem som
+    activeVideo.muted = true;
+    // opcional: reiniciar do 0 (se quiser começar sempre do 0)
+    try { activeVideo.currentTime = 0; } catch (e) {}
+    activeVideo.play().catch(err => {
+    // autoplay pode ser bloqueado — log para debug
+    console.warn('video play blocked or failed', err);
+    });
+}
+}
 
 // Menu Hambúrguer Responsivo
 document.addEventListener('DOMContentLoaded', function() {
