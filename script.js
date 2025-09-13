@@ -108,6 +108,7 @@ document.addEventListener('DOMContentLoaded', function() {
     navLinks.forEach(link => {
         link.addEventListener('click', function() {
             navMenu.classList.remove('active');
+            whatsappHeader.classList.remove('active');
             const spans = menuToggle.querySelectorAll('span');
             spans.forEach(span => span.classList.remove('active'));
         });
@@ -117,6 +118,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.addEventListener('click', function(event) {
         if (!menuToggle.contains(event.target) && !navMenu.contains(event.target)) {
             navMenu.classList.remove('active');
+            whatsappHeader.classList.remove('active');
             const spans = menuToggle.querySelectorAll('span');
             spans.forEach(span => span.classList.remove('active'));
         }

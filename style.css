@@ -12,6 +12,7 @@ a{
 }
 section {
 	text-align: center;
+	margin-bottom: 40px;
 }
 /* Header */
 header {
@@ -53,6 +54,7 @@ header a:hover {
 	background-color: #c084fc;
 }
 
+/* S no canto do site */
 .portifolio-header{
 	position: relative;
 	padding: 20px 16px 5px 16px;
@@ -66,10 +68,7 @@ header a:hover {
 	text-decoration: none;
 	transition: 0.3s ease;
 }
-.portifolio-header:hover{
-	background-color: white;
-	color: #c084fc;
-}
+
 #whatsapp-header{
 	background-color: #9541da;
 	padding: 10px 20px 15px 20px;
@@ -131,7 +130,7 @@ header a:hover {
 	header nav {
 		position: fixed;
 		top: 70px;
-		left: -100%;
+		left: -110%;
 		width: 100%;
 		height: calc(100vh - 70px);
 		background: rgba(0, 0, 0, 0.95);
@@ -200,6 +199,8 @@ header a:hover {
 		font-size: 1.1rem;
 	}
 }
+
+
 
 
 /* Card Principal */
@@ -426,6 +427,137 @@ svg{
 		min-height: 100vh;
 	}
 }
+/* Sobre mim */
+#about-section{
+	width: 100%;
+	background-color: #1f1f1f;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='630' height='200'><text x='0' y='180' font-size='200' font-family='barlow' margin='0' fill='%231b1b1b'>SOBRE</text></svg>");
+  background-repeat: repeat;
+  background-size: 500px 140px; /* espaçamento entre textos */
+}
+.about-wrap{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	gap: 5%;
+}
+#sobre-mim{
+	width: 60%;
+	height: 80%;
+	margin: 2rem auto;
+	align-items: center;
+	text-align: center;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	gap: 5%;
+}
+.sobre-titulo{
+	display: flex;
+	flex-direction: column;
+	height: 35vh;
+
+}
+.sobre-titulo h2{
+	color: #c084fc;
+	font-weight: 900;
+	font-size: 109px;
+	/* font-size: clamp(1rem, 2vw, 2.5rem); */
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin:0;
+}
+.sobre-titulo h2:nth-child(2){
+	font-size:200px;
+	margin:0;
+	position:relative;
+	top: -70px;
+}
+.texto-sobre{
+	font-size: clamp(1rem, 1.7vw, 2rem);
+	font-weight: 400;
+	width: 70%;
+	text-align: left;
+}
+.texto-sobre p{
+	margin: 0 0 16 0;
+}
+
+.especialidades-sobre{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+  gap: 10%;
+  margin: 0 auto; 
+	margin-bottom: 32px;
+}
+
+.especialidade{
+	display: flex;
+	flex-direction: row;
+  white-space: nowrap;
+	gap: 5%;
+
+	align-items: center;
+	cursor:pointer;
+
+	background-color: #0e0e0e;
+	border-radius: 0.5rem;
+	padding: 3% 9%;
+	font-size: clamp(0.5rem, 1vw, 1.5rem);
+
+}
+.especialidade svg {
+  width: clamp(20px, 3vw, 30px);
+  height: clamp(20px, 3vw, 30px);
+	position: relative;
+	top: -2px;
+}
+
+@media (max-width:768px){
+	#sobre-mim{
+		flex-direction: column;
+		width: 90%;
+	}
+	.sobre-titulo{
+		height: 28vh;
+	}
+	.sobre-titulo h2:nth-child(1){
+		font-size: 5.4rem;
+	}
+	.sobre-titulo h2:nth-child(2){
+		font-size: 10rem;
+		top: -55px;
+	}
+	#about-section{
+		background-size: 430px 140px; /* espaçamento entre textos */
+	}
+	.texto-sobre{
+		text-align: justify;
+	}
+	.especialidades-sobre{
+		flex-direction: column;
+		gap: 10px;
+		align-items: center;
+		max-width: 40%;
+	}
+	.especialidade{
+		justify-content: center;
+		width: 40vw;
+		padding: 19px 55px;
+		font-size: 0.8rem;
+	}
+	.especialidade svg {
+		width: 30px;
+		height: 30px;
+	}
+}
+
+
+
+
+
 
 /* Portifólio de Videos */
 .swiper {
@@ -453,6 +585,10 @@ svg{
 	display: block;
 	width: 100%;
 	height: 100%;
+	cursor: grab;
+}
+.swiper-slide video:active{
+	cursor: grabbing;
 }
 
 	/* SwiperJS */
@@ -482,7 +618,7 @@ svg{
 
 /* Portifólio Imagens */
 #portifolio-imagens{
-	background-color: #000000;
+	background-color: #1f1f1f;
 	display: flex;
 	flex-direction: column;
 	text-align: center;
@@ -601,4 +737,19 @@ footer {
 	font-size: 0.9rem;
 	color: #aaa;
 	border-top: 1px solid #6b21a8;
+}
+
+/* Coisas que quebram no mobile e atrapalham */
+@media (hover: hover){
+	.portifolio-header:hover {
+		background-color: white;
+		color: #c084fc;
+	}
+}
+
+@media (hover: none){
+	.portifolio-header:active {
+		background-color: white;
+		color: #c084fc;
+	}
 }
