@@ -53,6 +53,7 @@ header a:hover {
 	background-color: #c084fc;
 }
 
+/* S no canto do site */
 .portifolio-header{
 	position: relative;
 	padding: 20px 16px 5px 16px;
@@ -66,10 +67,7 @@ header a:hover {
 	text-decoration: none;
 	transition: 0.3s ease;
 }
-.portifolio-header:hover{
-	background-color: white;
-	color: #c084fc;
-}
+
 #whatsapp-header{
 	background-color: #9541da;
 	padding: 10px 20px 15px 20px;
@@ -131,7 +129,7 @@ header a:hover {
 	header nav {
 		position: fixed;
 		top: 70px;
-		left: -100%;
+		left: -110%;
 		width: 100%;
 		height: calc(100vh - 70px);
 		background: rgba(0, 0, 0, 0.95);
@@ -601,4 +599,19 @@ footer {
 	font-size: 0.9rem;
 	color: #aaa;
 	border-top: 1px solid #6b21a8;
+}
+
+/* Coisas que quebram no mobile e atrapalham */
+@media (hover: hover){
+	.portifolio-header:hover {
+		background-color: white;
+		color: #c084fc;
+	}
+}
+
+@media (hover: none){
+	.portifolio-header:active {
+		background-color: white;
+		color: #c084fc;
+	}
 }
