@@ -4,7 +4,14 @@ var typed = new Typed('#typed-cargos', {
     typeSpeed: 50,
     loop:true,
     backspeed: 30,
-  });
+});
+var typed = new Typed('#typed-footer-cargos', {
+    strings: ['Editora de Vídeo', 'Criadora de Conteúdo', 'Graduada em Design'],
+    cursorChar:'▶',
+    typeSpeed: 50,
+    loop:true,
+    backspeed: 30,
+});
 
 
 // swiper videos
