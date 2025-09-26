@@ -322,18 +322,25 @@ svg{
 	width: clamp(200px, 20vw, 300px);
 	height: clamp(200px, 20vw, 300px);
 	top: 25px; left: 12px;
+	transform-origin: 150px 120px;
+	/* animation: rotate 3s cubic-bezier(0.15, 0.29, 0.82, 0.67) infinite; */
+	animation: rotate 22s linear infinite;
 }
 .circle2 {
 	width: clamp(200px, 20vw, 330px);
 	height: clamp(200px, 20vw, 330px);
 	top: -14px; left: 20px;
 	border-color: aliceblue;
+	transform-origin: 133px 165px;
+	animation: rotate 25s cubic-bezier(0.15, 0.29, 0.82, 0.67) infinite reverse;
 }
 .circle3 {
 	width: clamp(200px, 20vw, 330px);
 	height: clamp(200px, 20vw, 330px);
 	top: -15px; left: -41px;
 	border-color: #8a4fcf;
+	transform-origin: 174px 156px;
+	animation: rotate 20s linear infinite;
 }
 .card-col2 img{
 	position: relative;
@@ -344,6 +351,16 @@ svg{
 	border: 4px solid #B57DE3;
 	margin-bottom: 1rem;
 	z-index: 800;
+}
+
+/* keyframes */
+@keyframes rotate{
+	from{
+		transform: rotate(0deg);
+	}
+	to{
+		transform: rotate(360deg);
+	}
 }
 
 /* Responsividade do card principal*/
@@ -457,12 +474,13 @@ svg{
 	display: flex;
 	flex-direction: column;
 	height: 35vh;
+	align-items: center;
 
 }
 .sobre-titulo h2{
 	color: #c084fc;
 	font-weight: 900;
-	font-size: 109px;
+	font-size: 127px;
 	/* font-size: clamp(1rem, 2vw, 2.5rem); */
 	display: flex;
 	flex-direction: column;
@@ -470,13 +488,13 @@ svg{
 	margin:0;
 }
 .sobre-titulo h2:nth-child(2){
-	font-size:200px;
+	font-size:228px;
 	margin:0;
 	position:relative;
 	top: -70px;
 }
 .texto-sobre{
-	font-size: clamp(1rem, 1.7vw, 2rem);
+	font-size: clamp(1rem, 1.5vw, 2rem);
 	font-weight: 400;
 	width: 70%;
 	text-align: left;
@@ -514,6 +532,23 @@ svg{
   height: clamp(20px, 3vw, 30px);
 	position: relative;
 	top: -2px;
+}
+@media (max-width:1024px) {
+	.sobre-titulo h2{
+		font-size: 100px;
+	}
+	.sobre-titulo h2:nth-child(2){
+		font-size:197px;
+	}
+	.sobre-titulo{
+		justify-content: center;
+	}
+	#sobre-mim{
+		width: 100%;
+	}
+	.texto-sobre {
+		transform: translateY(-2.5rem);
+	}
 }
 
 @media (max-width:768px){
@@ -568,10 +603,11 @@ svg{
 	margin: 0 auto 40px;
 }
 .swiper-slide {
-	background-position: center;
-	background-size: cover;
+	/* background-position: center;
+	background-size: cover; */
 	aspect-ratio: 16/9;
-	height: 700px;
+	height: 900px;
+	/* width: 506px!important; */
 }
 @media (max-width:480px){
 	.swiper-slide{
@@ -580,6 +616,12 @@ svg{
 	.swiper {
 		width: 90%;
 	}
+}
+
+.swiper-slide iframe {
+  height: 100%;
+  aspect-ratio: 9 / 16; /* formato de reels */
+  border-radius: 10px;
 }
 
 .swiper-slide video {

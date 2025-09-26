@@ -14,85 +14,123 @@ var typed = new Typed('#typed-footer-cargos', {
 });
 
 
+
+
+
+
+// teste de api do youtube
+// Guarda instâncias dos players do YouTube
+const ytPlayers = {};
+const ytReady = {}; // controla quais players já estão prontos
+
+// Chamada automática da API YouTube
+function onYouTubeIframeAPIReady() {
+  document.querySelectorAll('.swiper-slide iframe').forEach((iframe, i) => {
+    const id = 'yt-' + i;
+    iframe.id = id;
+    ytPlayers[id] = new YT.Player(id, {
+      events: {
+        'onReady': (event) => {
+          event.target.mute(); // garante mudo
+          ytReady[id] = true; // marca como pronto
+        }
+      }
+    });
+  });
+}
+
+// Função para pausar/tocar o vídeo ativo
+function handleActiveVideo(swiper) {
+  const activeSlide = swiper.el.querySelector('.swiper-slide-active');
+  if (!activeSlide) return;
+
+  // Pausa todos os YouTubes
+  Object.entries(ytPlayers).forEach(([id, player]) => {
+    try { player.pauseVideo(); } catch (e) {}
+  });
+
+  // Pausa todos os vídeos locais
+  document.querySelectorAll('.swiper-slide video').forEach(video => {
+    video.pause();
+    video.currentTime = 0;
+  });
+
+  // Toca o vídeo do meio
+  const iframe = activeSlide.querySelector('iframe');
+  const video = activeSlide.querySelector('video');
+
+  if (iframe && ytReady[iframe.id]) {
+    try { ytPlayers[iframe.id].playVideo(); } catch (e) {}
+  } else if (video) {
+    try {
+      video.currentTime = 0;
+      video.muted = true;
+      video.play();
+    } catch (e) {}
+  }
+}
+
 // swiper videos
 var swiper = new Swiper(".mySwiper", {
-keyboard: {
-    enabled: true,
-    },
-slidesPerView: 1,
-initialSlide: 0,
-speed: 700,
-effect: "coverflow",
-coverflowEffect: {
+  keyboard: { enabled: true },
+  slidesPerView: 1,
+  initialSlide: 0,
+  speed: 700,
+  effect: "coverflow",
+  coverflowEffect: {
     rotate: 10,
     slideShadows: true,
     stretch: 170,
-},
-spaceBetween: 0,
-
-loop: true,
-centeredSlides:true,
-pagination: {
-    el: ".swiper-pagination",
-    dynamicBullets: true,
-},
-navigation: {
+  },
+  loop: true,
+  centeredSlides: true,
+  pagination: { el: ".swiper-pagination", dynamicBullets: true },
+  navigation: {
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev',
-},
-breakpoints: {
-    // quando >= 480px: 2 slides
-    480: { 
-    slidesPerView: 1, 
-    spaceBetween: 20
-    },
-    // quando >= 1024px: 3 slides
+  },
+  breakpoints: {
+    480: { slidesPerView: 1, spaceBetween: 20 },
     1024: { slidesPerView: 2, spaceBetween: 40 },
-},
-on: {
-    init: function () {
-    // roda no próximo frame p/ garantir que as classes já estejam aplicadas
-    requestAnimationFrame(() => handleActiveVideo(this));
-    },
-    // roda *depois* da transição terminar (garante que o slide está visualmente ativo)
-    slideChangeTransitionEnd: function () {
-    handleActiveVideo(this);
-    }
-}
+  },
+  on: {
+    init() { setTimeout(() => handleActiveVideo(this), 1000); }, // espera um pouco
+    slideChangeTransitionEnd() { handleActiveVideo(this); },
+  }
 });
 
-// Videos dão play quando on focous
-function handleActiveVideo(swiper) {
-// obtém o slide DOM que está ativo agora
-const activeSlide = swiper.slides[swiper.activeIndex];
-if (!activeSlide) return;
+// // Videos dão play quando on focous
+// function handleActiveVideo(swiper) {
+// // obtém o slide DOM que está ativo agora
+// const activeSlide = swiper.slides[swiper.activeIndex];
+// if (!activeSlide) return;
 
-// pausa e reseta TODOS os vídeos (inclui clones)
-document.querySelectorAll('.swiper-slide video').forEach(video => {
-    // se o vídeo estiver dentro do slide ativo, ignore por enquanto
-    if (video.closest('.swiper-slide') === activeSlide) return;
-    try {
-    video.pause();
-    video.currentTime = 0;
-    } catch (e) {
-    // alguns navegadores podem bloquear currentTime antes de carregar; ignore
-    console.warn('reset video error', e);
-    }
-});
+// // pausa e reseta TODOS os vídeos (inclui clones)
+// document.querySelectorAll('.swiper-slide video').forEach(video => {
+//     // se o vídeo estiver dentro do slide ativo, ignore por enquanto
+//     if (video.closest('.swiper-slide') === activeSlide) return;
+//     try {
+//     video.pause();
+//     video.currentTime = 0;
+//     } catch (e) {
+//     // alguns navegadores podem bloquear currentTime antes de carregar; ignore
+//     console.warn('reset video error', e);
+//     }
+// });
 
-// toca o vídeo do slide ativo (garanta que o elemento existe)
-const activeVideo = activeSlide.querySelector('video');
-if (activeVideo) {
-    // garante autoplay sem som
-    activeVideo.muted = true;
-    // opcional: reiniciar do 0 (se quiser começar sempre do 0)
-    try { activeVideo.currentTime = 0; } catch (e) {}
-    activeVideo.play().catch(err => {
-    // autoplay pode ser bloqueado — log para debug
-    console.warn('video play blocked or failed', err);
-    });
-}
-}
+// // toca o vídeo do slide ativo (garanta que o elemento existe)
+// const activeVideo = activeSlide.querySelector('video');
+// if (activeVideo) {
+//     // garante autoplay sem som
+//     activeVideo.muted = true;
+//     // opcional: reiniciar do 0 (se quiser começar sempre do 0)
+//     try { activeVideo.currentTime = 0; } catch (e) {}
+//     activeVideo.play().catch(err => {
+//     // autoplay pode ser bloqueado — log para debug
+//     console.warn('video play blocked or failed', err);
+//     });
+// }
+// }
 
 // Menu Hambúrguer Responsivo
 document.addEventListener('DOMContentLoaded', function() {
