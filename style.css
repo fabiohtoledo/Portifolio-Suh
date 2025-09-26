@@ -457,12 +457,13 @@ svg{
 	display: flex;
 	flex-direction: column;
 	height: 35vh;
+	align-items: center;
 
 }
 .sobre-titulo h2{
 	color: #c084fc;
 	font-weight: 900;
-	font-size: 109px;
+	font-size: 127px;
 	/* font-size: clamp(1rem, 2vw, 2.5rem); */
 	display: flex;
 	flex-direction: column;
@@ -470,13 +471,13 @@ svg{
 	margin:0;
 }
 .sobre-titulo h2:nth-child(2){
-	font-size:200px;
+	font-size:228px;
 	margin:0;
 	position:relative;
 	top: -70px;
 }
 .texto-sobre{
-	font-size: clamp(1rem, 1.7vw, 2rem);
+	font-size: clamp(1rem, 1.5vw, 2rem);
 	font-weight: 400;
 	width: 70%;
 	text-align: left;
@@ -514,6 +515,23 @@ svg{
   height: clamp(20px, 3vw, 30px);
 	position: relative;
 	top: -2px;
+}
+@media (max-width:1024px) {
+	.sobre-titulo h2{
+		font-size: 100px;
+	}
+	.sobre-titulo h2:nth-child(2){
+		font-size:197px;
+	}
+	.sobre-titulo{
+		justify-content: center;
+	}
+	#sobre-mim{
+		width: 100%;
+	}
+	.texto-sobre {
+		transform: translateY(-2.5rem);
+	}
 }
 
 @media (max-width:768px){
