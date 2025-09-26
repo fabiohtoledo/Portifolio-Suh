@@ -216,6 +216,7 @@ header a:hover {
 	width: 100%;
 	background-image: radial-gradient(circle, #271027 2px, transparent 2px);
 	background-size: 40px 40px; /* espaçamento entre os pontos */
+	margin-bottom: 0;
 }
 
 
@@ -326,7 +327,7 @@ svg{
 	width: clamp(200px, 20vw, 330px);
 	height: clamp(200px, 20vw, 330px);
 	top: -14px; left: 20px;
-	border-color: #8a4fcf;
+	border-color: aliceblue;
 }
 .circle3 {
 	width: clamp(200px, 20vw, 330px);
@@ -430,8 +431,8 @@ svg{
 /* Sobre mim */
 #about-section{
 	width: 100%;
-	background-color: #1f1f1f;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='630' height='200'><text x='0' y='180' font-size='200' font-family='barlow' margin='0' fill='%231b1b1b'>SOBRE</text></svg>");
+	background-color: #000000;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='630' height='200'><text x='0' y='180' font-size='200' font-family='barlow' margin='0' fill='%23060606'>SOBRE</text></svg>");
   background-repeat: repeat;
   background-size: 500px 140px; /* espaçamento entre textos */
 }
@@ -616,9 +617,13 @@ svg{
 }
 
 
+
 /* Portifólio Imagens */
 #portifolio-imagens{
-	background-color: #1f1f1f;
+	background-color: #000000;
+	background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='700' height='200'><text x='0' y='180' font-size='200' font-family='barlow' margin='0' fill='%23060606'>DESIGN</text></svg>");
+	background-repeat: repeat;
+  background-size: 500px 140px; /* espaçamento entre textos */
 	display: flex;
 	flex-direction: column;
 	text-align: center;
